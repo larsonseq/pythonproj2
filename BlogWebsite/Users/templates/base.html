@@ -15,48 +15,47 @@
   <style>    {% block css %} {% endblock %} </style>
   </head>
   <body>      
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">Blog Website</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="container mx-3">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link {% block homeactive %} {% endblock homeactive %}" aria-current="page" href="/">Home</a>
-              </li>
-              {% if user.is_authenticated %}
-              <li class="nav-item">
-                <a class="nav-link {% block add_blogs_active %} {% endblock add_blogs_active %}" href="/add_blogs/">Add Blogs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="#">Hello {{request.user}}</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link {% block profileactive %} {% endblock profileactive %}" href="/profile/">Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/logout/">Logout</a>
-              </li>
-              {% else %}
-              <li class="nav-item">
-                <a class="nav-link {% block registeractive %} {% endblock registeractive %}" href="/register/">Register</a>
-              </li>
-               <li class="nav-item">
-                <a class="nav-link {% block loginactive %} {% endblock loginactive %}" href="/login/">Login</a>
-              </li>
-              {% endif %}
-            </ul>
-            </div>
-            <form class="d-flex" method="POST" action="/search/"> {% csrf_token %}
-              <input class="form-control me-2" type="search" placeholder="Search" name="searched" id="searched" aria-label="Search">
-              <button href="/search/" class="btn btn-outline-secondary" type="submit">Search</button>
-            </form>
-          </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top rounded">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-4" href="/">Blog Website</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link {% block homeactive %} {% endblock homeactive %} fs-5" aria-current="page" href="/">Home</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link {% block add_blogs_active %} {% endblock add_blogs_active %} fs-5" href="/add_blogs/">Add Blogs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fs-5" href="#">Hello {{request.user}}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% block profileactive %} {% endblock profileactive %} fs-5" href="/profile/">Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fs-5" href="/logout/">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link {% block registeractive %} {% endblock registeractive %} fs-5" href="/register/">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% block loginactive %} {% endblock loginactive %} fs-5" href="/login/">Login</a>
+            </li>
+            {% endif %}
+          </ul>
+          <form class="d-flex" method="POST" action="/search/"> {% csrf_token %}
+            <input class="form-control me-2 fs-5" type="search" placeholder="Search" name="searched" id="searched" aria-label="Search">
+            <button href="/search/" class="btn btn-outline-secondary fs-5" type="submit">Search</button>
+          </form>
         </div>
-      </nav>
+      </div>
+    </nav>
+    
       {% block body %}
       {% endblock %}
 
